@@ -31,7 +31,6 @@ def showhint():
 def generate_normal_pass():
     refresh_words()
     global WORDS
-    # print(WORDS)
     password = "".join(WORDS)
     entry.configure(state="normal")
     entry.delete(0, "end")
@@ -43,7 +42,6 @@ def generate_normal_pass():
 def generate_complex_pass():
     refresh_words()
     global WORDS
-    # print(WORDS)
     password = pg.add_complexity("".join(WORDS))
     entry.configure(state="normal")
     entry.delete(0, "end")
@@ -56,19 +54,8 @@ def generate_custom_pass():
     refresh_words()
     global WORDS
     string = "".join(WORDS)
-    print(string)
-    print(
-        hint_var.get(),
-        words_var.get(),
-        upper_var.get(),
-        digits_var.get(),
-        symbols_var.get(),
-    )
     if bool(words_var.get()):
-        print("add n of word")
-        print(no_of_words.get())
         WORDS = pg.get_words(no_of_words.get())
-        print(WORDS)
         string = "".join(WORDS)
     if bool(upper_var.get()):
         string = pg.add_cap_letters(string)
